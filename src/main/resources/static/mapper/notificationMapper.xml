@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.web.notification.NotificationDAO">
+
+	<select id="findMidById" parameterType="String" resultType="Map">
+	    SELECT b.btitle as btitle, c.comment as comment, (select mid from members where mno = c.mno) as id
+        FROM members m join board b
+        on m.mno = b.mno and m.mid = #{mid}
+        JOIN comments c ON c.bno = b.bno
+        WHERE DATE_FORMAT(c.cdate, '%Y-%m-%d') = DATE_FORMAT(NOW(), '%Y-%m-%d')
+		AND c.cno = (SELECT MAX(cno) FROM comments WHERE mid = #{mid});
+	</select>
+	
+</mapper>
