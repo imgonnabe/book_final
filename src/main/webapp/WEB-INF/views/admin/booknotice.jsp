@@ -115,7 +115,7 @@
           <div class="container">
                     <div class="comment-form mt-30">
                       <h4 class="comment-form-title font-alt">책 추가</h4>
-                      <form action="./bookWrite" method="post" enctype="multipart/form-data">
+                      <form action="./bookWrite" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="form-group">
@@ -139,6 +139,12 @@
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
+                                 출판사
+                               <input class="form-control" id=bkpublisher type="text" name="bkpublisher"  placeholder="출판사"/>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
                                  구매재고
                                <input class="form-control" id=bstock type="number" name="bstock"  placeholder="재고"/>
                             </div>
@@ -146,7 +152,7 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                                  대여가능여부
-                               <select class="form-control" name="rdel">
+                               <select class="form-control" name="rdel" id="rdel">
 					             <option selected="selected" value="0">대여가능</option>
 					             <option value="1">대여불가</option>
 				                </select>
@@ -155,23 +161,25 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                                  카테고리
-                               <select class="form-control" name="cate">
+                               <select class="form-control" name="cate" id="cate">
 					             <option selected="selected" value="0">장르선택</option>
 					             <option value="1">소설</option>
-					             <option value="2">에세이</option>
-					             <option value="3">자기개발</option>
+								<option value="2">시/에세이</option>
+								<option value="3">자기계발</option>
+								<option value="4">컴퓨터/IT</option>
+								<option value="5">생활(요리/건강)</option>
 				                </select>
                             </div>
                           </div>
                           
-                          <div class="col-sm-6">
+                          <div class="col-sm-5">
                             <div class="form-group">
                               간략정보
                               <textarea class="form-control" id="scontent" name="scontent" rows="4" placeholder="정보"></textarea>
                             </div>
                           </div>
-                          <div class="col-sm-6">
-                            <div class="form-group">
+                          <div class="col-sm-3">
+                            <div style="margin-top: 30px;" class="form-group">
                             <input type="file" name="upFile">
                             </div>
                           </div>
@@ -226,5 +234,28 @@
 		src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
 	<script src="../assets/js/plugins.js"></script>
 	<script src="../assets/js/main.js"></script>
+	
+	<script type="text/javascript">
+	
+		function validateForm() {
+			var name = $('#name').val().trim();
+            var write = $('#write').val().trim();
+            var price = $('#price').val().trim();
+            var bkpublisher = $('#bkpublisher').val().trim();
+            var bstock = $('#bstock').val().trim();
+            var rdel = $('#rdel').val().trim();
+            var cate = $('#cate').val().trim();
+            var scontent = $('#scontent').val().trim();
+            var content = $('#content').val().trim();
+			// 전부 입력 안됐을 때
+	          if(name === '' || write === '' || price === '' || bkpublisher === '' ||
+	        		  bstock === '' || rdel === '' || cate === '' || scontent === '' || content === ''){
+	        	  alert('책정보를 전부 입력해주세요.');
+	        	  return false;
+	          }
+			return true;
+		}
+	
+	</script>
   </body>
 </html>

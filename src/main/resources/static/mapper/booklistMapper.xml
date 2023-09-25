@@ -94,11 +94,11 @@
 
 	<insert id="bookWrite" parameterType="Map">
 		INSERT INTO books (bkname, bkwrite, bkscontent, bkcontent,
-		bkprice, bstock, bkcate
+		bkprice, bstock, bkcate, bkpublisher
 		<if test="upFile != null and upFile != ''">, bkimg</if>
 		)
 		VALUES (#{name}, #{write}, #{scontent}, #{content}, #{price},
-		#{bstock}, #{cate}
+		#{bstock}, #{cate}, #{bkpublisher}
 		<if test="upFile != null and upFile != ''">, #{upFile}</if>
 		)
 	</insert>

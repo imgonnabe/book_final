@@ -113,8 +113,10 @@
 								onclick="cateChange()">
 									<option selected="selected" value="0">전체</option>
 									<option value="1">소설</option>
-									<option value="2">에세이</option>
+									<option value="2">시/에세이</option>
 									<option value="3">자기계발</option>
+									<option value="4">컴퓨터/IT</option>
+									<option value="5">생활(요리/건강)</option>
 							</select>
 						</div>
 						<div class="col-sm-3 mb-sm-20">

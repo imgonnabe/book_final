@@ -121,8 +121,10 @@
 							onclick="cateChange()">
 								<option selected="selected" value="0">전체</option>
 								<option value="1">소설</option>
-								<option value="2">에세이</option>
+								<option value="2">시/에세이</option>
 								<option value="3">자기계발</option>
+								<option value="4">컴퓨터/IT</option>
+								<option value="5">생활(요리/건강)</option>
 						</select>
 					</div>
 				</form>
@@ -267,9 +269,13 @@
             if (categoryCode === 1) {
                 category = '소설';
             } else if (categoryCode === 2) {
-                category = '에세이';
+                category = '시/에세이';
             } else if (categoryCode === 3) {
                 category = '자기계발';
+            } else if (categoryCode === 4) {
+                category = '컴퓨터/IT';
+            } else if (categoryCode === 5) {
+                category = '생활(요리/건강)';
             }
 	        
 	        // 객체가 존재하지 않으면 초기화
